@@ -32,6 +32,7 @@ function replaceReactCode (wrapperId, options = {}) {
     str,
     wrapperId,
     lang: 'mixin-react',
-    components: options.components
+    components: options.components,
+    babelOptions: options.babelOptions
   })
 }
