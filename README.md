@@ -51,11 +51,7 @@ const md = new MarkdownIt().use(md => SupportReactComponent(md,[, options]))
 ### Params
 
 ## Example
-See [markdown-it-react-component-example](https://github.com/LinFeng1997/markdown-it-react-component-example/blob/master/index.js)
-
-### Use Antd React Components
-
-See [markdown-it-react-component-antd-example](https://github.com/LinFeng1997/markdown-it-react-component-example/blob/master/antd.js)
+run `npm run storybook`
 
 ## License
 

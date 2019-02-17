@@ -1,0 +1,7 @@
+node_modules
+output
+tests/components/__snapshots__
+src/server/apiTest/dist/*h
+test-report
+api-report
+!src/.wg

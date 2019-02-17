@@ -2,8 +2,8 @@ import container from 'markdown-it-container'
 import replacer from './lib/replacer'
 
 export const SupportReactComponent = (md, options) => {
-  md.use(...createContainer('rc', options))
   md.use(...createContainer('rc', options, '`'))
+  md.use(...createContainer('minxin-react', options, '`'))
 }
 
 function createContainer (klass, options, marker = ':') {
