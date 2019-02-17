@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@storybook/react": "^4.1.11",
-    "markdown-it": "^8.4.2"
+    "markdown-it": "^8.4.2",
+    "antd": "^3.13.2"
   }
 }
