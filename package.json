@@ -29,6 +29,7 @@
   "devDependencies": {
     "@storybook/react": "^4.1.11",
     "antd": "^3.13.2",
+    "highlight.js": "^9.14.2",
     "markdown-it": "^8.4.2",
     "rollup": "^1.2.1"
   }
