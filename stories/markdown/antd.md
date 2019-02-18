@@ -2,8 +2,8 @@
 ``` rc
 const { Button } = Antd;
 const xss = () => {
-  alert('xss attack');
   console.log('global methods is forbidden');
+  alert('xss attack');
 };
 return (
     <div>
