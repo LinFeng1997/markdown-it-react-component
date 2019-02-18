@@ -2,10 +2,11 @@
   "name": "markdown-it-react-component",
   "version": "0.2.0",
   "description": "Plugin to support react component for markdown-it markdown parser",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "build": "rollup -c"
   },
   "author": "",
   "license": "MIT",
@@ -27,7 +28,8 @@
   },
   "devDependencies": {
     "@storybook/react": "^4.1.11",
+    "antd": "^3.13.2",
     "markdown-it": "^8.4.2",
-    "antd": "^3.13.2"
+    "rollup": "^1.2.1"
   }
 }

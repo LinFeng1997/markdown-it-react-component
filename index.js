@@ -1,6 +1,5 @@
 import container from 'markdown-it-container';
-// import replacer from './lib/replacer';
-import Replacer from './lib';
+import Replacer from './lib/index';
 
 export const SupportReactComponent = (md, options) => {
   md.use(...createContainer('rc', options, '`'));
@@ -25,14 +24,3 @@ function createContainer (klass, options, marker = ':') {
     marker
   }];
 }
-
-// function replaceReactCode (wrapperId,str, options = {}) {
-//   const html = replacer({
-//     str,
-//     wrapperId,
-//     lang: 'mixin-react',
-//     components: options.components,
-//     babelOptions: options.babelOptions
-//   });
-//   return html;
-// }
