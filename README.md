@@ -4,7 +4,7 @@ Plugin to support react component for markdown-it markdown parser
 With this plugin you can support react component like:
 
 ```
-\`\`\` rc
+``` rc
 function Hello(props){
     return (
         <div>
@@ -18,7 +18,7 @@ return (
         <Hello text="World"/>
     </div>
 );
-\`\`\`
+```
 ```
 
 ## Installation
@@ -38,8 +38,9 @@ import { SupportReactComponent } from "../index";
 const md = new MarkdownIt().use(md => SupportReactComponent(md,[, options]))
 ```
 
+### Params
 * options:
-    - components - optional,React Component to provide plugin.
+    - sandbox - optional,sandbox to provide plugin,such as React Component.
     - babelOptions - optional,Babel Options,defalut:
     ```
     {
@@ -47,8 +48,8 @@ const md = new MarkdownIt().use(md => SupportReactComponent(md,[, options]))
       plugins: ['filterXSS']
     }
     ```
-
-### Params
+    - babelInit - optional,Babel initialization callback.
+    - enableSSR - optional,Whether to enable SSR rendering.
 
 ## Example
 run `npm run storybook`

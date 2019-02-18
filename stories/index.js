@@ -8,7 +8,7 @@ import Button from "antd/es/button";
 import 'antd/es/button/style/index.css';
 
 const md = new MarkdownIt().use(SupportReactComponent,{
-  components: {
+  sandbox: {
     Antd: {
       Button
     }
