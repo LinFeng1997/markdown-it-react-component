@@ -33,7 +33,7 @@ $ npm install markdown-it-react-component --save
 
 ```js
 import MarkdownIt from "markdown-it";
-import { SupportReactComponent } from "../index";
+import { SupportReactComponent } from "markdown-it-react-component";
 
 const md = new MarkdownIt().use(md => SupportReactComponent(md,[, options]))
 ```
