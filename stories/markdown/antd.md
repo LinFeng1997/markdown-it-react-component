@@ -145,10 +145,10 @@ const noteStyle = {color:'grey',margin:0}
 return (
    <div>
       <Timeline>
-        <Timeline.Item>视频云官网上线 2018-06-01</Timeline.Item>
-        <Timeline.Item>视频云官网后台上线 2018-06-20</Timeline.Item>
-        <Timeline.Item>视频云控制台一期上线 2018-09-01<p style={noteStyle}>note</p></Timeline.Item>
-        <Timeline.Item color="red">未完待续</Timeline.Item>
+        <Timeline.Item>aaa</Timeline.Item>
+        <Timeline.Item>bbb</Timeline.Item>
+        <Timeline.Item>ccc<p style={noteStyle}>note</p></Timeline.Item>
+        <Timeline.Item color="red">ddd</Timeline.Item>
       </Timeline>
    </div>
 );
@@ -156,16 +156,16 @@ return (
 ````
 
 ### Output
-``` rc
+```rc
 const Timeline = Antd.Timeline
 const noteStyle = {color:'grey',margin:0}
 return (
    <div>
       <Timeline>
-        <Timeline.Item>视频云官网上线 2018-06-01</Timeline.Item>
-        <Timeline.Item>视频云官网后台上线 2018-06-20</Timeline.Item>
-        <Timeline.Item>视频云控制台一期上线 2018-09-01<p style={noteStyle}>note</p></Timeline.Item>
-        <Timeline.Item color="red">未完待续</Timeline.Item>
+        <Timeline.Item>aaa</Timeline.Item>
+        <Timeline.Item>bbb</Timeline.Item>
+        <Timeline.Item>ccc<p style={noteStyle}>note</p></Timeline.Item>
+        <Timeline.Item color="red">ddd</Timeline.Item>
       </Timeline>
    </div>
 );
