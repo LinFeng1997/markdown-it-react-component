@@ -19,7 +19,7 @@ function createContainer (klass, options, marker = ':') {
         let str = tokens.slice(idx,idx + offset).reduce((pre,cur)=>{
           return pre + '\n' + cur.content;
         },'');
-        console.log('str',str)
+        // console.log('str',str)
         const html = replacer.getHtml(wrapperId, str);
         return `<div class="${klass} minxin-react" style="opacity: 0" id="${wrapperId}">${html}`;
       } else {
