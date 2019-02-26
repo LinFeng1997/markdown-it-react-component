@@ -22,7 +22,7 @@
             // console.warn('constructor xss');
             path.node.name = 'x';
           }
-          else if (window[path.node.name]) {
+          else if (window && window[path.node.name]) {
             path.node.name = 'x';
           }
         },
