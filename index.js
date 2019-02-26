@@ -20,7 +20,7 @@ function createContainer (klass, options, marker = ':') {
           return pre + '\n' + cur.content;
         },'');
         const html = replacer.getHtml(wrapperId, str);
-        return `<div class="${klass} minxin-react" style="opacity: 0" id="${wrapperId}">${html}`;
+        return `<div class="${klass}" style="opacity: 0" id="${wrapperId}">${html}`;
       } else {
         return '</div>\n';
       }

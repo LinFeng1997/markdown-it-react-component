@@ -12,7 +12,7 @@ import './index.css';
 
 import MarkdownEditor from './editor';
 
-storiesOf('minxin-react', module)
+storiesOf('mixin-react', module)
   .add('base', () => (
     <div className="markdown-body" dangerouslySetInnerHTML={{ __html: md.render(str) }}/>
   ))
