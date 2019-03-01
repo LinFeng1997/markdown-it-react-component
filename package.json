@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-react-component",
-  "version": "0.3.2",
+  "version": "0.3.4",
   "description": "Plugin to support react component for markdown-it markdown parser",
   "main": "dist/index.js",
   "scripts": {
