@@ -1,4 +1,4 @@
-import container from 'markdown-it-container';
+import container from 'markdown-it-container/dist/markdown-it-container.min';
 import Replacer from './lib/index';
 
 export const SupportReactComponent = (md, options) => {

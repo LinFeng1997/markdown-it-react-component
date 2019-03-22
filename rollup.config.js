@@ -1,4 +1,5 @@
 // rollup.config.js
+import babel from 'rollup-plugin-babel';
 export default {
   input: 'index.js',
   output: [{
@@ -8,5 +9,10 @@ export default {
   }, {
     file: 'dist/es/index.js',
     format: 'esm'
-  }]
+  }],
+  plugins: [
+    babel({
+      exclude: 'node_modules/**' // 仅仅转译我们的源码
+    })
+  ],
 };
