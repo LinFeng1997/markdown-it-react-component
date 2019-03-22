@@ -48,7 +48,8 @@ module.exports = {
     'space-infix-ops': 'error',
     'keyword-spacing': ['error', { 'before': true }],
     'key-spacing': ['error', { 'beforeColon': false, 'afterColon': true }],
-    'react/prop-types': [1, { ignore: ['children'] }]
+    'react/prop-types': [1, { ignore: ['children'] }],
+    "comma-dangle": ["error", "never"]
   },
   'parser': 'babel-eslint',
 };
