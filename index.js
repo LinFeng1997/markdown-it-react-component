@@ -9,10 +9,13 @@ export const SupportReactComponent = (md, options) => {
 function createContainer (klass, options, marker = ':') {
   const replacer = new Replacer(options);
   return [container, klass, {
-    render (tokens, idx) {
+    render (tokens, idx,_options,env) {
       const token = tokens[idx];
       // const info = token.info.trim().slice(klass.length).trim();
       if (token.nesting === 1) {
+        if (typeof env.mdRefs === 'object' && typeof options.sandbox === 'object') {
+          sandbox.mdRefs = env.mdRefs;
+        }
         let wrapperId = 'rc' + Math.random().toString(36).substr(2, 10);
 
         try {
