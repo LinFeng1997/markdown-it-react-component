@@ -13,8 +13,8 @@ function createContainer (klass, options, marker = ':') {
       const token = tokens[idx];
       // const info = token.info.trim().slice(klass.length).trim();
       if (token.nesting === 1) {
-        if (typeof env.mdRefs === 'object' && typeof options.sandbox === 'object') {
-          options.sandbox.mdRefs = env.mdRefs;
+        if (typeof env.mdRefs === 'object' && typeof replacer.sandbox === 'object') {
+          replacer.sandbox.mdRefs = env.mdRefs;
         }
         let wrapperId = 'rc' + Math.random().toString(36).substr(2, 10);
 
