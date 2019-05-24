@@ -1,13 +1,14 @@
 {
   "name": "markdown-it-react-component",
-  "version": "0.3.6",
+  "version": "0.4.1-rc.3",
   "description": "Plugin to support react component for markdown-it markdown parser",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "build": "rollup -c",
-    "lint":"eslint lib --fix"
+    "lint":"eslint lib --fix",
+    "pub": "npm run build && npm publish"
   },
   "author": "",
   "license": "MIT",
@@ -21,8 +22,8 @@
     "babel-standalone": "^6.26.0",
     "dompurify": "^1.0.10",
     "markdown-it-container": "^2.0.0",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "repository": {
     "type": "git",
