@@ -4,6 +4,7 @@ import md from './md';
 
 import str from './markdown/base.md';
 import antdStr from './markdown/antd.md';
+import customStr from './markdown/custom.md';
 import 'antd/dist/antd.min.css';
 import './github-markdown.css';
 import 'highlight.js/styles/github.css';
@@ -21,4 +22,7 @@ storiesOf('mixin-react', module)
   ))
   .add('editor',() => (
     <MarkdownEditor markdown={antdStr}/>
-  ));
+  ))
+  .add('custom',() => (
+    <MarkdownEditor markdown={customStr}/>
+  ))

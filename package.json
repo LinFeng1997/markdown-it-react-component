@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "build": "rollup -c",
-    "lint":"eslint lib --fix"
+    "lint": "eslint lib --fix"
   },
   "author": "",
   "license": "MIT",
@@ -21,8 +21,8 @@
     "babel-standalone": "^6.26.0",
     "dompurify": "^1.0.10",
     "markdown-it-container": "^2.0.0",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react": "^16.8.0",
+    "react-dom": "^16.7.2"
   },
   "repository": {
     "type": "git",

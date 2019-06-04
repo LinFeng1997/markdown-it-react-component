@@ -1,7 +1,8 @@
-import highlight from './highlight';
-import MarkdownIt from 'markdown-it';
-import * as Antd from 'antd/lib/index';
-import { SupportReactComponent } from '../index';
+import highlight from './highlight'
+import MarkdownIt from 'markdown-it'
+import * as Antd from 'antd/lib/index'
+import CustomBtn from './custom-components/Button'
+import { SupportReactComponent } from '../index'
 
 export default new MarkdownIt({
   highlight,
@@ -11,6 +12,9 @@ export default new MarkdownIt({
   langPrefix: 'lang-'
 }).use(SupportReactComponent, {
   sandbox: {
-    Antd
+    Antd,
+    Custom: {
+      Button: CustomBtn
+    }
   },
-});
+})
