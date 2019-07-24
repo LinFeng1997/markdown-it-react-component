@@ -9,7 +9,7 @@ export const SupportReactComponent = (md, options) => {
   md.block.ruler.before('html_block','react_block',reactBlockRule);
   md.renderer.rules.react_block = function (tokens, idx) {
     const code = `\`\`\` mixin-react
-return (${tokens[idx].content.replace(/\n/g,'')})
+return (${tokens[idx].content})
 \`\`\``;
     // console.log('code',code)
     return md.render(code)
