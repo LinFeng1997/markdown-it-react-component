@@ -11,6 +11,7 @@ export default new MarkdownIt({
   langPrefix: 'lang-'
 }).use(SupportReactComponent, {
   sandbox: {
-    Antd
+    Antd,
+    ...Antd
   },
 });
