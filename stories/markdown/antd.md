@@ -33,11 +33,6 @@ return (
 ```
 ````
 
-<Antd.Button type="primary">
-Simple React Component
-</Antd.Button>
-<Antd.Button type="primary">Simple React Component 2</Antd.Button>
-
 ### Output
 ``` rc
 const { Button } = Antd;
