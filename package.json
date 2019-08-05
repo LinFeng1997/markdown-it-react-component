@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "build": "rollup -c",
-    "lint":"eslint lib --fix",
+    "lint": "eslint lib --fix",
     "pub": "npm run build && npm publish"
   },
   "author": "",
@@ -39,6 +39,7 @@
     "@babel/runtime": "^7.3.1",
     "@storybook/react": "^4.1.11",
     "antd": "^3.13.2",
+    "babel-loader": "^8.0.6",
     "highlight.js": "^9.14.2",
     "markdown-it": "^8.4.2",
     "rollup": "^1.2.1",

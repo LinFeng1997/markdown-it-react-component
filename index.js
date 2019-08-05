@@ -37,6 +37,7 @@ function createContainer (klass, options, marker = ':') {
           const html = replacer.getHtml(wrapperId, str);
           return `<div class="${klass}" style="opacity: 0" id="${wrapperId}">${html}`;
         } catch (e) {
+          if(options && options.allowErrorLog) console.log(e);
           return `<div class="${klass}" style="opacity: 0" id="${wrapperId}">`;
         }
       } else {
