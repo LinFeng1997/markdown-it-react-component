@@ -1,6 +1,9 @@
 ## 按钮
 <Button type="primary">点我！</Button>
 
+test react inline
+<Button type="primary">点我！</Button>
+
 ```jsx
 <Button type="primary">点我！</Button>
 ```

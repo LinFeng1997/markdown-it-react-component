@@ -1,12 +1,24 @@
 import container from 'markdown-it-container/dist/markdown-it-container.min';
 import Replacer from './lib/index';
 import reactBlockRule from './lib/react_block'
+import { react_inline } from './lib/react_inline'
 
 export const SupportReactComponent = (md, options) => {
   md.use(...createContainer('rc', options, '`'));
   md.use(...createContainer('mixin-react', options, '`'));
   // react_block
-  md.block.ruler.before('html_block','react_block',reactBlockRule);
+  md.block.ruler.before('html_block','react_block',reactBlockRule,[ 'paragraph', 'reference', 'blockquote' ]);
+  // react_inline
+  md.inline.ruler.before('html_inline','react_inline',react_inline);
+  md.renderer.rules.react_inline = function (tokens, idx) {
+//     const code = `\`\`\` mixin-react
+// return (${tokens[idx].content})
+// \`\`\``;
+    // console.log('code',code)
+    // return md.render(code)
+    // md.render(code)
+    return `<p><mark>解析组件失败，请与其他文字保持至少一行空行</mark></p>`
+  }
   md.renderer.rules.react_block = function (tokens, idx) {
     const code = `\`\`\` mixin-react
 return (${tokens[idx].content})
