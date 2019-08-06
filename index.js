@@ -9,7 +9,7 @@ function renderSimpleComponent(replacer,content) {
   let wrapperId = getWrapperId();
 
   const code = `return (${content})`;
-  return replacer.getHtml(wrapperId, code);
+  return `<div style="opacity: 0" id="${wrapperId}">${replacer.getHtml(wrapperId, code)}</div>`;
 }
 export const SupportReactComponent = (md, options) => {
   md.use(...createContainer('rc', options, '`'));
