@@ -28,11 +28,13 @@ return (
 
 ### Output
 ``` rc
+const { useState } = React;
 function Hello(props){
+    const [count,setCount] = useState(0);
     return (
         <div>
             Hello:
-            <p style={{color:'red'}}>{props.text}</p>
+            <p onClick={() => setCount(count + 1)} style={{color:'red'}}>{props.text}{count}</p>
         </div>
     )
 }

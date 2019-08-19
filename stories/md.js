@@ -2,6 +2,7 @@ import highlight from './highlight';
 import MarkdownIt from 'markdown-it';
 import * as Antd from 'antd/lib/index';
 import { SupportReactComponent } from '../index';
+import React from 'react';
 
 export default new MarkdownIt({
   highlight,
@@ -11,6 +12,12 @@ export default new MarkdownIt({
   langPrefix: 'lang-'
 }).use(SupportReactComponent, {
   sandbox: {
-    Antd
+    Antd,
+    ...Antd,
+    React,
+    Array: {
+      isArray: Array.isArray
+    }
   },
+  allowErrorLog: true
 });
