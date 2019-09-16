@@ -5,12 +5,12 @@ import { react_inline } from './lib/react_inline';
 import { getWrapperId } from './lib/func';
 
 
-function renderSimpleComponent(replacer,content) {
+function renderSimpleComponent(replacer,content,env) {
   let wrapperId = getWrapperId();
 
   const code = `return (${content})`;
   try {
-    return `<div style="opacity: 0" id="${wrapperId}">${replacer.getHtml(wrapperId, code)}</div>`;
+    return `<div style="opacity: 0" id="${wrapperId}">${replacer.getHtml(wrapperId, code,env)}</div>`;
   } catch (e) {
     console.error(e);
     return `<div style="opacity: 0" id="${wrapperId}"></div>`;
@@ -24,14 +24,14 @@ export const SupportReactComponent = (md, options) => {
 
   // // react_block
   md.block.ruler.before('html_block','react_block',reactBlockRule,[ 'paragraph', 'reference', 'blockquote' ]);
-  md.renderer.rules.react_block = function (tokens, idx) {
-    return renderSimpleComponent(replacer,tokens[idx].content);
+  md.renderer.rules.react_block = function (tokens, idx,options, env) {
+    return renderSimpleComponent(replacer,tokens[idx].content,env);
   };
 
   // // react_inline
   md.inline.ruler.before('html_inline','react_inline',react_inline);
-  md.renderer.rules.react_inline = function (tokens, idx) {
-    return renderSimpleComponent(replacer,tokens[idx].content);
+  md.renderer.rules.react_inline = function (tokens, idx,options, env) {
+    return renderSimpleComponent(replacer,tokens[idx].content,env);
   };
 };
 
@@ -53,7 +53,7 @@ function createContainer (klass, options, marker = ':') {
           let str = tokens.slice(idx,idx + offset).reduce((pre,cur)=>{
             return pre + '\n' + cur.content;
           },'');
-          const html = replacer.getHtml(wrapperId, str);
+          const html = replacer.getHtml(wrapperId, str,env);
           return `<div class="${klass}" style="opacity: 0" id="${wrapperId}">${html}`;
         } catch (e) {
           if (options && options.allowErrorLog) console.log(e);
