@@ -4,6 +4,7 @@
 test react inline
 <Button type="primary">点我！</Button>
 
+
 ```jsx
 <Button type="primary">点我！</Button>
 ```
@@ -41,8 +42,13 @@ test react inline
 ## 图标
 <Icon type="play-circle" />
 
+<Icon type="play-circle" 
+/>
+
 ```
 <Icon type="play-circle" />
+<Icon type="play-circle" 
+/>
 ```
 
 ## 轮播图
