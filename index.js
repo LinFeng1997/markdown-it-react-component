@@ -51,7 +51,11 @@ function createContainer (klass, options, marker = ':') {
         try {
           const offset = tokens.slice(idx).findIndex(token => token.type === `container_${klass}_close`);
           let str = tokens.slice(idx,idx + offset).reduce((pre,cur)=>{
-            return pre + '\n' + cur.content;
+            const str = pre + '\n' + cur.content;
+            // reset token
+            cur.content = '';
+            cur.children = [];
+            return str;
           },'');
           const html = replacer.getHtml(wrapperId, str,env);
           return `<div class="${klass}" style="opacity: 0" id="${wrapperId}">${html}`;
