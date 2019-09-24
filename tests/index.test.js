@@ -1,7 +1,7 @@
 import React from 'react';
 import MarkdownIt from 'markdown-it';
 import { SupportReactComponent } from '../index';
-import { getResult, wrapperId } from './util';
+import { getResult, wrapperId,getSimpleResult } from './util';
 import * as funcs from '../lib/func';
 
 funcs.getWrapperId = () => wrapperId;
@@ -44,5 +44,20 @@ describe('markdown-it-react-component', () => {
     const html = md.render(code);
     expect(html).toBe(getResult('rc', '<div>hello world!</div>'));
   });
+
+  describe('react_inline', () => {
+    it('react_inline code should be render', () => {
+      const code = '<Hello text="hello"/>';
+      const html = md.render(code);
+      expect(html).toBe(getSimpleResult('<div>hello world!</div>'));
+    });
+  });
+
+  describe('react_block', () => {
+    it('react_block code should be render', () => {
+      const code = '<Hello text="hello">\n\n</Hello>';
+      const html = md.render(code);
+      expect(html).toBe(getSimpleResult('<div>hello world!</div>'));
+    });
+  });
 });
-// component in sandbox
