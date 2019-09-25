@@ -54,6 +54,9 @@ const md = new MarkdownIt().use(md => SupportReactComponent(md,[, options]))
 ## Example
 run `npm run storybook`
 
+## Test
+run `npm run test`
+
 ## License
 
 [MIT](https://github.com/LinFeng1997/markdown-it-react-component/blob/master/LICENSE) 
