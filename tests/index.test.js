@@ -1,7 +1,7 @@
 import React from 'react';
 import MarkdownIt from 'markdown-it';
 import { SupportReactComponent } from '../index';
-import { getResult, wrapperId,getSimpleResult } from './util';
+import { getResult, wrapperId,getSimpleInput,getSimpleResult } from './util';
 import * as funcs from '../lib/func';
 
 funcs.getWrapperId = () => wrapperId;
@@ -34,29 +34,25 @@ describe('markdown-it-react-component', () => {
   });
 
   it('react code should be render', () => {
-    const code = '```rc \n return <div>hello world!</div> \n ```';
-    const html = md.render(code);
+    const html = md.render(getSimpleInput('code'));
     expect(html).toBe(getResult('rc', '<div>hello world!</div>'));
   });
 
   it('react code include component which in sandbox should be render', () => {
-    const code = '```rc \n return <Hello text="hello"/> \n ```';
-    const html = md.render(code);
+    const html = md.render(getSimpleInput('component'));
     expect(html).toBe(getResult('rc', '<div>hello world!</div>'));
   });
 
   describe('react_inline', () => {
     it('react_inline code should be render', () => {
-      const code = '<Hello text="hello"/>';
-      const html = md.render(code);
+      const html = md.render(getSimpleInput('react_inline_code'));
       expect(html).toBe(getSimpleResult('<div>hello world!</div>'));
     });
   });
 
   describe('react_block', () => {
     it('react_block code should be render', () => {
-      const code = '<Hello text="hello">\n\n</Hello>';
-      const html = md.render(code);
+      const html = md.render(getSimpleInput('react_block_code'));
       expect(html).toBe(getSimpleResult('<div>hello world!</div>'));
     });
   });
