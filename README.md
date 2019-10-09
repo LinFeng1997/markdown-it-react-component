@@ -49,7 +49,8 @@ const md = new MarkdownIt().use(md => SupportReactComponent(md,[, options]))
     }
     ```
     - babelInit - optional,Babel initialization callback.
-    - enableSSR - optional,Whether to enable SSR rendering.
+    - enableSSR - optional,Whether to enable SSR rendering.defalut:`true`
+    - allowErrorLog - optional,Whether log the info of render react code error.defalut:`false`
 
 ## Example
 run `npm run storybook`
