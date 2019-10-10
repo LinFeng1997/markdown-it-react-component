@@ -93,12 +93,23 @@ describe('markdown-it-react-component', () => {
             expect(html).toBe(getResult('rc', '<div>Abc</div>'));
         });
     });
+
+    describe('env', () => {
+        it('mdRefs', () => {
+            const html = md.render(getSimpleInput('md_refs'), {
+                mdRefs: {
+                    str1: 'hello',
+                    str2: 'world'
+                }
+            });
+            expect(html).toBe(getResult('rc', '<div>hello world!</div>'));
+        });
+
+        // it('document', () => {
+        //
+        // });
+    });
 });
-
-// mdRefs
-
-// env.document
-
 // xss
 
 // getWrapperId
