@@ -1,27 +1,14 @@
-## 按钮
-<Button type="primary">点我！</Button>
-
-test react inline
-<Button type="primary">点我！</Button>
-
-
-```jsx
-<Button type="primary">点我！</Button>
-```
-
-## 按钮链接
-
 <Button style={{
   height: '',
   padding: '',
   fontSize: '16px',
   marginBottom: 'px',
-  background: '#ff142b',
+  background: '#dd142b',
   borderColor: '#ff0070',
 }} type="primary" size="large" shape="round">
-  <a href='https://mp.toutiao.com/profile_v3_public/pgc_public/service/feedback?source=xigua' rel="noopener noreferrer" target="_blank">
-        🍉呼叫西瓜君
-    </a>
+  <a href='https://www.baidu.com' rel="noopener noreferrer" target="_blank">
+        百度
+  </a>
 </Button>
 
 ```
@@ -30,12 +17,12 @@ test react inline
   padding: '',
   fontSize: '16px',
   marginBottom: 'px',
-  background: '#ff142b',
+  background: '#dd142b',
   borderColor: '#ff0070',
 }} type="primary" size="large" shape="round">
-  <a href='https://mp.toutiao.com/profile_v3_public/pgc_public/service/feedback?source=xigua' rel="noopener noreferrer" target="_blank">
-        🍉呼叫西瓜君
-    </a>
+  <a href='https://www.baidu.com' rel="noopener noreferrer" target="_blank">
+        百度
+  </a>
 </Button>
 ```
 
@@ -79,18 +66,18 @@ test react inline
 ## 时间轴
 
 <Timeline>
-    <Timeline.Item>视频云官网上线 2018-06-01</Timeline.Item>
-    <Timeline.Item>视频云官网后台上线 2018-06-20</Timeline.Item>
-    <Timeline.Item>视频云控制台一期上线 2018-09-01<p style={noteStyle}>note</p></Timeline.Item>
-    <Timeline.Item color="red">未完待续</Timeline.Item>
+    <Timeline.Item>1</Timeline.Item>
+    <Timeline.Item>2</Timeline.Item>
+    <Timeline.Item>3<p style={noteStyle}>note</p></Timeline.Item>
+    <Timeline.Item color="red">4</Timeline.Item>
 </Timeline>
 
 ```
 <Timeline>
-    <Timeline.Item>视频云官网上线 2018-06-01</Timeline.Item>
-    <Timeline.Item>视频云官网后台上线 2018-06-20</Timeline.Item>
-    <Timeline.Item>视频云控制台一期上线 2018-09-01<p style={noteStyle}>note</p></Timeline.Item>
-    <Timeline.Item color="red">未完待续</Timeline.Item>
+    <Timeline.Item>1</Timeline.Item>
+    <Timeline.Item>2</Timeline.Item>
+    <Timeline.Item>3<p style={noteStyle}>note</p></Timeline.Item>
+    <Timeline.Item color="red">4</Timeline.Item>
 </Timeline>
 ```
 
