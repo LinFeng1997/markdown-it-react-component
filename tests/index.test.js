@@ -20,6 +20,7 @@ const md = new MarkdownIt({
     allowErrorLog: true
 });
 const logSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
 const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
 /**
@@ -28,7 +29,9 @@ const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 describe('markdown-it-react-component', () => {
 
     beforeAll(() => {
-        window = undefined;
+        window = {
+            alert: jest.fn()
+        };
         jest.useFakeTimers();
     });
 
@@ -109,9 +112,42 @@ describe('markdown-it-react-component', () => {
         //
         // });
     });
-});
-// xss
 
+    describe('xss', () => {
+        // it('global object', () => {
+        //     const alert = jest.fn();
+        //     window.alert = alert;
+        //     const md = new MarkdownIt().use(SupportReactComponent, {
+        //         sandbox: {
+        //             alert
+        //         }
+        //     });
+        //     md.render(getSimpleInput('xss'));
+        //     expect(alert).toHaveBeenCalled();
+        // });
+        it('constructor', () => {
+            md.render(getSimpleInput('xss_constructor'));
+            expect(warnSpy).toHaveBeenCalledWith('constructor xss');
+            expect(warnSpy).toHaveBeenCalledWith('constructor str xss');
+            expect(warnSpy).toHaveBeenCalledTimes(5);
+        });
+
+        it('str constructor', () => {
+            md.render(getSimpleInput('xss_constructor_str'));
+            expect(warnSpy).toHaveBeenCalledWith('constructor str xss');
+        });
+
+        it('this', () => {
+            md.render(getSimpleInput('xss_this'));
+            expect(warnSpy).toHaveBeenCalledWith('this escape xss attack');
+        });
+
+        it('dangerouslySetInnerHTML', () => {
+            md.render(getSimpleInput('xss_dangerouslySetInnerHTML'));
+            expect(warnSpy).toHaveBeenCalledWith('dangerouslySetInnerHTML xss');
+        });
+    });
+});
 // getWrapperId
 
 // 前端
