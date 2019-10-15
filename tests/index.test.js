@@ -60,11 +60,18 @@ describe('markdown-it-react-component', () => {
         it('react_inline code should be render', () => {
             const html = md.render(getSimpleInput('react_inline_code'));
             expect(html).toBe('<p>a<br>\n' + getSimpleResult('<div>hello world!</div>') + '</p>\n');
+        });
 
-            const html2 = md.render(getSimpleInput('error_react_inline_code'));
+        it('break line code', () => {
+            const html = md.render(getSimpleInput('react_inline_break_line_code'));
+            expect(html).toBe('<p>a<br>\n' + getSimpleResult('<div>hello world!</div>') + '</p>\n');
+        });
+
+        it('error code', () => {
+            const html = md.render(getSimpleInput('error_react_inline_code'));
             expect(errorSpy).toHaveBeenCalled();
             errorSpy.mockRestore();
-            expect(html2).toBe('<p>a<br>\n' + getSimpleResult('') + '</p>\n');
+            expect(html).toBe('<p>a<br>\n' + getSimpleResult('') + '</p>\n');
         });
     });
 
