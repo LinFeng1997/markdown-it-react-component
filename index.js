@@ -4,9 +4,15 @@ import reactBlockRule from './lib/react_block';
 import { react_inline } from './lib/react_inline';
 import { getWrapperId } from './lib/func';
 
-
 function renderSimpleComponent(replacer,content,env) {
   let wrapperId = getWrapperId();
+
+  if (env && typeof env === 'object') {
+    replacer.sandbox = {
+      ...replacer.sandbox,
+      ...env
+    };
+  }
 
   const code = `return (${content})`;
   try {
@@ -42,10 +48,13 @@ function createContainer (klass, options, marker = ':') {
       const token = tokens[idx];
       // const info = token.info.trim().slice(klass.length).trim();
       if (token.nesting === 1) {
-        // Todo:Inject env variable to instance sandbox
-        if (typeof env.mdRefs === 'object' && typeof replacer.sandbox === 'object') {
-          replacer.sandbox.mdRefs = env.mdRefs;
+        if (env && typeof env === 'object') {
+          replacer.sandbox = {
+            ...replacer.sandbox,
+            ...env
+          };
         }
+
         let wrapperId = getWrapperId();
 
         try {
