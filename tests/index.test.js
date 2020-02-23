@@ -1,7 +1,8 @@
 import React from 'react';
+import {Collapse,Card,Steps,Timeline} from 'antd';
 import MarkdownIt from 'markdown-it';
 import {SupportReactComponent} from '../index';
-import {getResult, wrapperId, getSimpleInput, getSimpleResult} from './util';
+import {getResult, wrapperId, getSimpleInput, getSimpleResult,readFile} from './util';
 import * as funcs from '../lib/func';
 
 funcs.getWrapperId = () => wrapperId;
@@ -15,7 +16,8 @@ const md = new MarkdownIt({
         Array: {
             isArray: Array.isArray
         },
-        Hello
+        Hello,
+        Collapse,Card,Steps,Timeline
     },
     allowErrorLog: true
 });
@@ -53,6 +55,11 @@ describe('markdown-it-react-component', () => {
         it('react_block code should be render', () => {
             const html = md.render(getSimpleInput('react_block_code'));
             expect(html).toBe(getSimpleResult('<div>hello world!</div>'));
+        });
+
+        it('react_block nest code should be render', () => {
+            const html = md.render(getSimpleInput('react_nest_block_code'));
+            expect(html).toBe(readFile('./spec/react_nest_block_code.html'));
         });
     });
 
