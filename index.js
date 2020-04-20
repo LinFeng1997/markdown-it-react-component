@@ -16,10 +16,10 @@ function renderSimpleComponent(replacer,content,env) {
 
   const code = `return (${content})`;
   try {
-    return `<div style="opacity: 0" id="${wrapperId}">${replacer.getHtml(wrapperId, code,env)}</div>`;
+    return `<span style="opacity: 0" id="${wrapperId}">${replacer.getHtml(wrapperId, code,env)}</span>`;
   } catch (e) {
     console.error(e);
-    return `<div style="opacity: 0" id="${wrapperId}"></div>`;
+    return `<span style="opacity: 0" id="${wrapperId}"></span>`;
   }
 }
 export const SupportReactComponent = (md, options) => {
