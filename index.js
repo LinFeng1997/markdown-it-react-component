@@ -4,7 +4,7 @@ import reactBlockRule from './lib/react_block';
 import { react_inline } from './lib/react_inline';
 import { getWrapperId } from './lib/func';
 
-function renderSimpleComponent(replacer,content,env) {
+export function renderSimpleComponent(replacer,content,env) {
   let wrapperId = getWrapperId();
 
   if (env && typeof env === 'object') {
@@ -27,6 +27,7 @@ export const SupportReactComponent = (md, options) => {
   md.use(...createContainer('mixin-react', options, '`'));
 
   const replacer = new Replacer(options);
+  md['md-it-rc-replacer'] = replacer;
 
   // // react_block
   md.block.ruler.before('html_block','react_block',reactBlockRule,[ 'paragraph', 'reference', 'blockquote' ]);
