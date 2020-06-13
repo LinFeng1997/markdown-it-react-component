@@ -40,43 +40,42 @@ export const SupportReactComponent = (md, options) => {
   md.renderer.rules.react_inline = function (tokens, idx,options, env) {
     return renderSimpleComponent(replacer,tokens[idx].content,env);
   };
+
+  function createContainer (klass, options, marker = ':') {
+    return [container, klass, {
+      render (tokens, idx,_options,env) {
+        const token = tokens[idx];
+        // const info = token.info.trim().slice(klass.length).trim();
+        if (token.nesting === 1) {
+          if (env && typeof env === 'object') {
+            replacer.sandbox = {
+              ...replacer.sandbox,
+              ...env
+            };
+          }
+
+          let wrapperId = getWrapperId();
+
+          try {
+            const offset = tokens.slice(idx).findIndex(token => token.type === `container_${klass}_close`);
+            let str = tokens.slice(idx,idx + offset).reduce((pre,cur)=>{
+              const str = pre + '\n' + cur.content;
+              // reset token
+              cur.content = '';
+              cur.children = [];
+              return str;
+            },'');
+            const html = replacer.getHtml(wrapperId, str,env);
+            return `<div class="${klass}" style="opacity: 0" id="${wrapperId}">${html}`;
+          } catch (e) {
+            if (options && options.allowErrorLog) console.log(e);
+            return `<div class="${klass}" style="opacity: 0" id="${wrapperId}">`;
+          }
+        } else {
+          return '</div>\n';
+        }
+      },
+      marker
+    }];
+  }
 };
-
-function createContainer (klass, options, marker = ':') {
-  const replacer = new Replacer(options);
-  return [container, klass, {
-    render (tokens, idx,_options,env) {
-      const token = tokens[idx];
-      // const info = token.info.trim().slice(klass.length).trim();
-      if (token.nesting === 1) {
-        if (env && typeof env === 'object') {
-          replacer.sandbox = {
-            ...replacer.sandbox,
-            ...env
-          };
-        }
-
-        let wrapperId = getWrapperId();
-
-        try {
-          const offset = tokens.slice(idx).findIndex(token => token.type === `container_${klass}_close`);
-          let str = tokens.slice(idx,idx + offset).reduce((pre,cur)=>{
-            const str = pre + '\n' + cur.content;
-            // reset token
-            cur.content = '';
-            cur.children = [];
-            return str;
-          },'');
-          const html = replacer.getHtml(wrapperId, str,env);
-          return `<div class="${klass}" style="opacity: 0" id="${wrapperId}">${html}`;
-        } catch (e) {
-          if (options && options.allowErrorLog) console.log(e);
-          return `<div class="${klass}" style="opacity: 0" id="${wrapperId}">`;
-        }
-      } else {
-        return '</div>\n';
-      }
-    },
-    marker
-  }];
-}
