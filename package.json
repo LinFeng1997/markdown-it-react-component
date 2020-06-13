@@ -7,7 +7,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "build": "rollup -c",
     "lint": "eslint lib --fix",
-    "pub": "nnpm run test && npm run build && npm version patch && npm publish",
+    "pub": "npm run test && npm run build && npm version patch && npm publish",
     "test": "./node_modules/.bin/jest",
     "test:debug": "node --inspect node_modules/.bin/jest --runInBand",
     "test:coverage": "jest  -u --coverage"
